@@ -28,6 +28,7 @@
     var wins = 0;
     var losses = 0;
     var ties = 0;
+    var guessesSoFar = 9;
 
     // Create variables that hold references to the places in the HTML where we want to display things.
     var directionsText = document.getElementById("directions-text");
@@ -37,8 +38,18 @@
     var lossesText = document.getElementById("losses-text");
     var tiesText = document.getElementById("ties-text");
 
+    // ??? refresh screen automatically after 9 guesses. Use.reload() or call the function that starts the game??
+
+    // if ($(guessesSoFar === 0) {location.reload();)}
+
+    // after a user action you would have to subtract from guessesSoFar
+
+
+
     // This function is run whenever the user presses a key.
     document.onkeyup = function(event) {
+      
+      
 
       // Determines which key was pressed.
       var userGuess = event.key;
@@ -48,7 +59,7 @@
 
       // Reworked our code from last step to use "else if" instead of lots of if statements.
 
-      // This logic determines the outcome of the game (win/loss/tie), and increments the appropriate number
+      // This logic determines the outcome of the game (win/loss/tie), and increments the appropriate number. Possible to use fo loop instead?
       if ((userGuess === "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u","v", "w", "x","y","z") || (userGuess === "p") || (userGuess === "s")) {
 
         if ((userGuess === "a" && computerGuess === "a") ||
@@ -84,15 +95,18 @@
           losses++;
         }
 
+        // limit 9 guesses
+
+
         // Hide the directions
         directionsText.textContent = "";
 
         // Display the user and computer guesses, and wins/losses/ties.
-        userChoiceText.textContent = "You chose: " + userGuess;
-        computerChoiceText.textContent = "The computer chose: " + computerGuess;
+      
         winsText.textContent = "wins: " + wins;
         lossesText.textContent = "losses: " + losses;
         tiesText.textContent = "ties: " + ties;
+  
       }
     };
   </script>
